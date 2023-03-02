@@ -31,3 +31,48 @@ while not acertou:
             print("Pensei em um número menor, tente novamente!")
                      
 print("Parabéns usuário! Você acertou com {} tentativas!".format(palpites))
+
+===================================================
+#1º SORTEAR UM NÚMERO ENTRE 0 E 1000 (PRIMO)
+#2º DAR DICA (MAIOR OU MENOR)
+#3º CHANCES = 15
+#4º VIDA 1.000
+#5º TEMPO PARA JOGAR = 60 SEGUNDOS -> datetime.datetime.now()
+
+from random import randint
+
+print("Olá usuário, acabei de sortear um número primo entre 0 e 1000.")
+
+computador = randint(1, 1000)
+
+def primeNumber():
+    isPrime = False
+    while isPrime == False:
+        for count in range(2, computador - 1):
+            if computador % count == 0:
+                break
+            else:
+                isPrime = True
+                continue
+    return computador
+
+acertou = False
+palpites = 0
+computador = randint(1, 1000)
+
+while acertou:
+    palpites += 1
+    if jogador == computador:
+        acertou = True
+        break
+    else:
+        if jogador < computador:
+            print("Pensei em um número maior, tente novamente!")
+        elif jogador > computador:
+            print("Pensei em um número menor, tente novamente!")
+
+    print("Parabéns usuário! Você acertou com {} tentativas!".format(palpites+1))
+
+
+
+
