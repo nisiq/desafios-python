@@ -74,5 +74,41 @@ while acertou:
     print("Parabéns usuário! Você acertou com {} tentativas!".format(palpites+1))
 
 
+import random
+import datetime
+
+i = 0
+
+while i==0:
+    mult = 0
+    sorteado = random.randint(1, 1000)
+    for count in range(2, sorteado):
+        if (sorteado % count == 0):
+            mult += 1
+    if (mult==0):
+        i += 1
+
+escolhido = 0
+chances = 15
+vida = 1000
+dif_vida = sorteado - escolhido
+
+print(f"Você tem {vida} vidas!")
+
+while escolhido != sorteado:
+
+    escolhido = int(input("Seu palpite: "))
+
+    if escolhido % 2 == 0:
+        print("Você perdeu {} vidas".format(vida-dif_vida))
+
+    if escolhido > sorteado:
+        print("O número é menor")
+
+    elif escolhido < sorteado:
+        print("O número é maior")
+        
+print("Parabéns! Você acertou!")
+
 
 
