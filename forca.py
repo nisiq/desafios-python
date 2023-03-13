@@ -39,25 +39,39 @@ while vidas > 0:
     if "_" not in letras_descobertas:
         print(f"Parabéns, você descobriu a palavra '{palavra_sort}'!")
         break
-
-         
-         
 ====================================================== 
-         
-         
- palavra_nutella = "Gym".upper()
+palavra_nutella = "Gym".upper()
+acertos = 0
+erros = 0
+letras_corretas = ''
+letras_erradas = ''
 
 print(len(palavra_nutella))
 
 print("-="*30)
 print("Olá jogador! Te desafio a acertar qual palavra eu estou pensando!")
-print("Dica inicial: A palavra trata-se de um lugar e está escrita em inglês!")
+print("Dica inicial: A palavra trata-se de um lugar!")
 
-letra = input("Digite UMA letra: ").upper()
-if len(letra)>1:
-    print("ERROR 401 - Unauthorized. Atenção jogador. É permitido apenas UMA letra por jogada.")
-else:
-    if letra in palavra_nutella:
-        print("Você acertou a letra! Continue assim!")
+while acertos != len(palavra_nutella) and erros != 6:
+    mensagem = ''
+    for letra in palavra_nutella:
+        if letra in letras_corretas:
+            mensagem += letra
+        else:
+            mensagem += '_'
+    print(mensagem)
+    letra = input("Digite UMA letra: ").upper()
+    print("=-" * 30)
+    if len(letra) > 1:
+        print("\33[1mERROR 401 - Unauthorized.\033[1m Atenção jogador, é permitido apenas UMA letra por jogada.")
     else:
-        print("Você errou a letra! Cuidado com as chances...")
+        if letra in palavra_nutella:
+            print("\033[0;30;42mVocê acertou a letra! Continue assim!\033[m")
+            letras_corretas += letra
+            acertos += 1
+        else:
+            print("\033[0;30;41mVocê errou a letra! Cuidado com as chances...\033[m")
+            letras_erradas += letra
+            erros += 1
+        print(f"Letras corretas já digitadas: {letras_corretas}")
+        print(f"Letras erradas já digitadas: {letras_erradas}")
