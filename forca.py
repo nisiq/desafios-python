@@ -39,3 +39,25 @@ while vidas > 0:
     if "_" not in letras_descobertas:
         print(f"Parabéns, você descobriu a palavra '{palavra_sort}'!")
         break
+
+         
+         
+====================================================== 
+         
+         
+ palavra_nutella = "Gym".upper()
+
+print(len(palavra_nutella))
+
+print("-="*30)
+print("Olá jogador! Te desafio a acertar qual palavra eu estou pensando!")
+print("Dica inicial: A palavra trata-se de um lugar e está escrita em inglês!")
+
+letra = input("Digite UMA letra: ").upper()
+if len(letra)>1:
+    print("ERROR 401 - Unauthorized. Atenção jogador. É permitido apenas UMA letra por jogada.")
+else:
+    if letra in palavra_nutella:
+        print("Você acertou a letra! Continue assim!")
+    else:
+        print("Você errou a letra! Cuidado com as chances...")
