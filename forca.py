@@ -40,17 +40,42 @@ while vidas > 0:
         print(f"Parabéns, você descobriu a palavra '{palavra_sort}'!")
         break
 ====================================================== 
-palavra_nutella = "Gym".upper()
+import random
+
+#mediana = 3 vidas / muda as palavras / insert/delete
+#dificil = incluir dentro de um arquivo csv (palavra; dica)/split
+
+
+
+palavras = ("gym", "school", "airport", "bank", "museum", "store")
+dica = ["treino", "estudos", "viagem", "dinheiro", "arte", "compras"]
+
+palavra_nutella = random.choice(palavras).upper()
+
 acertos = 0
 erros = 0
 letras_corretas = ''
 letras_erradas = ''
 
-print(len(palavra_nutella))
+def linha():
+    print("-="*30)
 
-print("-="*30)
+
+linha()
 print("Olá jogador! Te desafio a acertar qual palavra eu estou pensando!")
 print("Dica inicial: A palavra trata-se de um lugar!")
+print(palavra_nutella)
+
+#def dica():
+    help = 999
+    cont = 0
+    while help != 999:
+        stop = print("[Você tem direito a UMA dica. Digite 999 quando quiser visualiza-lá]")
+        for letra in help:
+            if help in 999:
+                dica()
+            else:
+                continue
 
 while acertos != len(palavra_nutella) and erros != 6:
     mensagem = ''
@@ -58,10 +83,15 @@ while acertos != len(palavra_nutella) and erros != 6:
         if letra in letras_corretas:
             mensagem += letra
         else:
-            mensagem += '_'
+            mensagem += '_ '
+    linha()
+    dica()
+    print(f"A palavra possui: {len(palavra_nutella)} letras.")
     print(mensagem)
+
     letra = input("Digite UMA letra: ").upper()
-    print("=-" * 30)
+    dica()
+    linha()
     if len(letra) > 1:
         print("\33[1mERROR 401 - Unauthorized.\033[1m Atenção jogador, é permitido apenas UMA letra por jogada.")
     else:
